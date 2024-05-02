@@ -4,7 +4,7 @@ import { ReactTyped, Typed } from "react-typed";
 const Animation = () => {
   return (
     <div className='text-black'>
-        <div className='max-w-[1000px] w-full mt-20  mx-auto text-center flex flex-col justify-center'>
+        <div className='max-w-[1000px] w-full mt-20  mx-auto text-center flex flex-col justify-center pb-14'>
             <p className='text-red font-extrabold p-2'> GROWING YOUR PROFESSIONAL CAREER </p>
             <h1 className='md:text-7xl sm:text-6xl text-4xl font-extrabold md:py-6'> Grow with Tunisair </h1>
             <div className='flex justify-center items-center'>

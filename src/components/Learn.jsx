@@ -3,10 +3,10 @@ import Team from "../assets/teams.jpg"
 
 const Learn = () => {
   return (
-    <div className='w-full bg-white py-16 px-4 '>
+    <div className=' w-full bg-white py-5 px-4 border-t border-solid border-gray-200 '>
 
-        <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
-            <img className='w-[500px] shadow-lg mx-auto my-4' src= {Team} />
+        <div className='max-w-[1240px] mx-auto grid md:grid-cols-2 '>
+            <img className='w-[500px] mx-auto my-4' src= {Team} />
             <div className='flex flex-col justify-center'> 
               <p className='text-[#e2001a] font-bold'> Write some text here </p>
               <h1 className='md:text-4xl sm:text-2xl font-bold py-2'> Productive Atmosphere </h1>

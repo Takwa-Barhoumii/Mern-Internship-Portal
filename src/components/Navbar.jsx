@@ -17,7 +17,7 @@ const Navbar = () => {
       {path: "/my-space", title: "My Space" },
     ]
   return (
-    <header className=' max-w-screen-2xl container mx-auto xl:px-24 px-4'>
+    <header className=' max-w-screen-2xl container mx-auto xl:px-24 px-4 shadow-sm '>
         <nav className=' flex justify-between items-center py-6'>
             <a href="/" className="flex items-center gap-2 text-2xl text-black"> 
             <img src="../public/images/logo.png" alt="Tunisair Logo" className="w-40 h-auto mr-2"/>
