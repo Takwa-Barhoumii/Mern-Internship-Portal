@@ -16,7 +16,7 @@ const OurInternships = () => {
 
   useEffect (() => {
     setIsloading(true); 
-    fetch("internships.json").then(res => res.json()).then(data => {
+    fetch("http://localhost:5000/all-internships").then(res => res.json()).then(data => {
       
       setInternships(data)
       setIsloading(false); 

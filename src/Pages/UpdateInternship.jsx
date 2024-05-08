@@ -1,11 +1,16 @@
+import { useLoaderData, useParams } from 'react-router-dom'
 import React,{ useState } from 'react'
 import { useForm } from "react-hook-form";
 import CreatableSelect from 'react-select/creatable';
 
+const UpdateInternship = () => {
 
+    const {id} = useParams();
+    //console.log(id);
+    const {_id, internshipTitle, companyName, payment, internshipLocation, employmentType, description,
+         postingDate, postedBy, skills} = useLoaderData()
 
-const CreateInternship = () => { 
-const [selectedOption, setSelectedOption] = useState(null);
+         const [selectedOption, setSelectedOption] = useState(null);
 
   const {
   register,
@@ -19,21 +24,23 @@ const onSubmit = (data) => {
   
  // console.log(data); 
 
- fetch("http://localhost:5000/create-internship", {
-  method: "POST",
+ fetch(`http://localhost:5000/update-internship/${id}`, {
+  method: "PATCH",
   headers: { 'content-type':'application/json'},
   body: JSON.stringify(data)
  } )
- .then( res => res.json()).then((result) => {
+ .then( (res) => res.json())
+ .then((result) => {
   console.log(result);
   if (result.acknowledged === true) {
-    alert ("Internship Posted Succesfully!")
+    alert ("Internship Updated Succesfully!")
   }
   reset();
 
  });
 
 };
+
   const options =[
    {value: "Javascript", label: "JavaScript"}, 
    {value: "C++", label: "C++"}, 
@@ -47,7 +54,10 @@ const onSubmit = (data) => {
   ]
 
 
+
+
   return (
+    
     <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4'>
       
       <div className='bg-[#FAFAFA] py-10px-4 lg:px-16'>
@@ -59,14 +69,14 @@ const onSubmit = (data) => {
         <div className='flex flex-col lg:flex-row items-center justify-between gap-8'>
           <div className='lg:w-1/2 w-full'>
             <label className='block mb-2 text-lg'> Internship Title  </label>
-            <input type="text" placeholder={"Ex: Web Developer"} 
+            <input type="text" defaultValue={internshipTitle} 
             {...register("internshipTitle")} className='create-internship-input' />
 
           </div>
 
           <div className='lg:w-1/2 w-full'>
             <label className='block mb-2 text-lg'> Company Name </label>
-            <input type="text" placeholder={"Ex: Agence Ariana"} 
+            <input type="text" defaultValue={companyName}  
             {...register("companyName")} className='create-internship-input' />
 
           </div>
@@ -80,7 +90,7 @@ const onSubmit = (data) => {
           <div className='lg:w-1/2 w-full'>
             <label className='block mb-2 text-lg'> Paymenet </label>
             <select {...register("payment")} className='create-internship-input'> 
-              <option value="">Choose Payment</option>
+              <option value={payment}>{payment}</option>
               <option value="Paid">Paid</option>
               <option value="Not Paid">Not Paid</option>
               
@@ -91,7 +101,7 @@ const onSubmit = (data) => {
 
           <div className='lg:w-1/2 w-full'>
             <label className='block mb-2 text-lg'> Internship Location </label>
-            <input type="text" placeholder={"Ex: Tunis"} 
+            <input type="text" defaultValue={internshipLocation} 
             {...register("internshipLocation")} className='create-internship-input' />
 
           </div>
@@ -104,14 +114,14 @@ const onSubmit = (data) => {
         <div className='create-internship-flex'>
         <div className='lg:w-1/2 w-full'>
             <label className='block mb-2 text-lg'> Internship Posting Date </label>
-            <input type="date" placeholder={"Ex: 2024-05-05"} 
+            <input type="date" defaultValue={postingDate} 
             {...register("postingDate")} className='create-internship-input' />
 
           </div>
           <div className='lg:w-1/2 w-full'>
             <label className='block mb-2 text-lg'> Employement Type </label>
             <select {...register("employmentType")} className='create-internship-input'> 
-              <option value="">Choose Type</option>
+              <option value={employmentType}>{employmentType}</option>
               <option value="Hybrid">Hybrid</option>
               <option value="Remote">Remote</option>
               <option value="On site">On site</option>
@@ -130,7 +140,7 @@ const onSubmit = (data) => {
         <div>
         <label className='block mb-2 text-lg'> Required Skill Sets </label>
         <CreatableSelect
-        defaultValue={selectedOption}
+        defaultValue={skills}
         onChange={setSelectedOption}
         options={options}
         isMulti
@@ -145,7 +155,7 @@ const onSubmit = (data) => {
         <label className='block mb-2 text-lg'> Description </label>
         <textarea className='w-full pl-3 py-1.5 focus:outline-none placeholder:text-gray-700' 
         rows={6}
-        placeholder='Job description...'
+        defaultValue={description}
         {...register("description")}/>
         </div>
 
@@ -154,7 +164,7 @@ const onSubmit = (data) => {
          <div className='w-full'>
          <label className='block mb-2 text-lg'> Submitted by </label>
 
-         <input type="email" placeholder={"your email"} 
+         <input type="email" defaultValue={postedBy} 
             {...register("postedBy")} className='create-internship-input' />
          </div>
 
@@ -169,4 +179,4 @@ const onSubmit = (data) => {
   )
 }
 
-export default CreateInternship
+export default UpdateInternship

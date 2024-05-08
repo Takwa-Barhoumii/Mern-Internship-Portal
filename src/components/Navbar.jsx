@@ -14,7 +14,9 @@ const Navbar = () => {
       {path: "/about", title: "About" },
       {path: "/our-internships", title: "Internships" },
       {path: "/resources", title: "Resources" },
+      {path: "/supervisor", title: "Supervisor" },
       {path: "/my-space", title: "My Space" },
+      
     ]
   return (
     <header className=' max-w-screen-2xl container mx-auto xl:px-24 px-4 shadow-sm '>
