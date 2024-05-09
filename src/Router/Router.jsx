@@ -11,6 +11,11 @@ import Supervisor from "../Pages/Supervisor";
 import MyInternships from "../Pages/MyInternships";
 import UpdateInternship from "../Pages/UpdateInternship";
 import Login from "../components/Login";
+import SignUp from "../components/SignUp";
+import UnderReview from "../components/UnderReview";
+import Unnasigned from "../components/Unnasigned";
+import Intern from "../components/Intern";
+import PrivateComponent from "../components/PrivateComponent";
 
 
 const router = createBrowserRouter([
@@ -22,12 +27,22 @@ const router = createBrowserRouter([
                 {path: "/about", element: <About/> },
         {path: "/our-internships", element: <OurInternships/> },
         {path: "/resources", element: <Rescources/> },
-        {path: "/my-space", element: <MySpace/> },
+
+       //wrapped my space with private component
+        {
+          path: "/my-space",
+          element: <PrivateComponent child={<MySpace />} />,
+        } ,
+
+        
         {path: "/create-internship", element: <CreateInternship/> },
         {path: "/supervisor", element: <Supervisor/> },
         {path: "/my-internships", element: <MyInternships/> },
         {path: "/edit-internship/:id", element: <UpdateInternship/>,
          loader: ({params}) => fetch(`http://localhost:5000/all-internships/${params.id}`) },
+         {path: "/under-review", element: <UnderReview/> },
+         {path: "/my-space/login", element: <Unnasigned/> },
+         {path: "/intern", element: <Intern/> },
         
 
         
@@ -36,9 +51,18 @@ const router = createBrowserRouter([
     },
 
     {
-      path: "/Login",
+      path: "/login",
       element: <Login/>
-    }
+    },
+
+    {
+      path: "/sign-up",
+      element: <SignUp/>
+    },
+    
+
+    
+
   ]);
 
   export default router; 

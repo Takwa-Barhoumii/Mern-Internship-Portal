@@ -1,8 +1,24 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {FaBarsStaggered, FaXmark} from 'react-icons/fa6';
 
+
+
+
 const Navbar = () => {
+
+  //access to user in local storage
+    const auth = localStorage.getItem('user');
+    const navigate = useNavigate();
+
+    //logout clear function
+    const logout =() => {
+      localStorage.clear();
+      navigate("/my-space/login");
+    
+    }
+
+
     const [isMenuOpen, SetIsMenuOpen] = useState (false); 
     const handleMenuToggler = () => {
 
@@ -42,13 +58,19 @@ const Navbar = () => {
                 }
               </ul>
 
-              { /* Sign up and login buttons */}
+
+              { /* Sign up and login & logout buttons */}
+
               <div className="text-base text-primary font-medium space-x-5 hidden lg:block">
-                <Link to='/login' className= "py-2 px-5 border rounded"> Log in </Link>
+                { auth ? <Link onClick ={logout}  to='/my-space/login' className= "py-2 px-5 border rounded bg-red text-white"> Logout  </Link> :
+                <div className='flex'> <Link to='/login' className= "py-2 px-5 border rounded"> Log in </Link>
                 <Link to='/sign-up' className= "py-2 px-5 border rounded bg-red text-white"> Sign up  </Link>
+                </div>}
+                
                 
 
               </div>
+              
               {/* mobile menu */}
 
               <div className='md:hidden block'>
