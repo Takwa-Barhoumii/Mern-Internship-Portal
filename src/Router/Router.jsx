@@ -16,6 +16,8 @@ import UnderReview from "../components/UnderReview";
 import Unnasigned from "../components/Unnasigned";
 import Intern from "../components/Intern";
 import PrivateComponent from "../components/PrivateComponent";
+import UsersInfo from "../components/UsersInfo";
+import InternshipDetails from "../Pages/InternshipDetails";
 
 
 const router = createBrowserRouter([
@@ -37,9 +39,11 @@ const router = createBrowserRouter([
         
         {path: "/create-internship", element: <CreateInternship/> },
         {path: "/supervisor", element: <Supervisor/> },
+        {path: "/users-info", element: <UsersInfo/> },
         {path: "/my-internships", element: <MyInternships/> },
         {path: "/edit-internship/:id", element: <UpdateInternship/>,
          loader: ({params}) => fetch(`http://localhost:5000/all-internships/${params.id}`) },
+         {path: "/internship/:id", element: <InternshipDetails/> },
          {path: "/under-review", element: <UnderReview/> },
          {path: "/my-space/login", element: <Unnasigned/> },
          {path: "/intern", element: <Intern/> },

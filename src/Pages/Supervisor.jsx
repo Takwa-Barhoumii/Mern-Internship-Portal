@@ -28,9 +28,9 @@ const Supervisor = () => {
         {/* 3rd section */}
         <div className='text-black'>
             <div className='max-w-[1000px] w-full mt-20  mx-auto text-center flex flex-col justify-center pb-14'>
-                <h1 className='md:text-7xl sm:text-6xl text-4xl font-extrabold md:py-6'> Incoming requests</h1>
+                <h1 className='md:text-7xl sm:text-6xl text-4xl font-extrabold md:py-6'> USERS INFO </h1>
                 
-                <a href="" target="_blank"> <button className='bg-red w-[200px] text-white rounded-md font-medium my-6 mx-auto px-6 py-3 '>
+                <a href="users-info" target="_blank"> <button className='bg-red w-[200px] text-white rounded-md font-medium my-6 mx-auto px-6 py-3 '>
                 Get Started </button> </a>
 
             </div>

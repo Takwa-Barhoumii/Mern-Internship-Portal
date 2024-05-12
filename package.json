@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
+    "@mui/material": "^5.15.17",
     "axios": "^1.6.8",
     "emailjs-com": "^3.2.0",
     "firebase": "^10.11.1",
@@ -23,7 +24,8 @@
     "react-router-dom": "^6.23.0",
     "react-select": "^5.8.0",
     "react-typed": "^2.0.12",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.11.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

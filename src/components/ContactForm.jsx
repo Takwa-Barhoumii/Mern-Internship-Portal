@@ -58,7 +58,7 @@ const ContactForm = () => {
       <div  className="sm:col-span-2">
       <label for="message" className="block mb-2 text-sm dark:text-black font-bold">
         Message</label>
-      <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900
+      <textarea id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900
        bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 
        focus:border-primary-500 dark:bg-gray-100 dark:border-gray-600 dark:placeholder-gray-400
         dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500" 

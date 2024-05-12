@@ -1,35 +1,14 @@
-import React from 'react';
-import MyNotes from '../components/MyNotes';
+import React from 'react'
 import UnderReview from '../components/UnderReview';
+import MyNotes from '../components/MyNotes';
 import Supervisor from './Supervisor';
-import jwt from 'jsonwebtoken';
-
-
 
 const MySpace = () => {
-  const user = jwt.verify(localStorage.getItem("user"), "secretOrPrivateKey")  
-  console.log(user)
-
-  {/* const  = () => {
-    switch (user.role) {
-      case 'intern':
-        return <MyNotes/>;
-      case 'potentialIntern':
-        return <UnderReview/>;
-      case 'supervisor':
-        return <Supervisor/>;
-      default:
-        return <div>No role defined or you're not authorized to view this content</div>;
-    }
-  }; */}
+  const role = localStorage.getItem('role');
 
   return (
-    <div>
-      <h1>My Space</h1>
-      
-       
-    </div>
-  );
-};
+   role=="potentialIntern" ?<UnderReview/>:role=="intern" ?<MyNotes/>:<Supervisor/>
+  )
+}
 
-export default MySpace;
+export default MySpace

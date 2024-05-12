@@ -36,14 +36,28 @@ const Login = () => {
 
      
       
-      localStorage.setItem("user", response.data.accessToken)
+      localStorage.setItem("user", response.data._id)
+      localStorage.setItem("role", response.data.role)
     
 
 
       // Redirect to dashboard or perform other actions upon successful login
-      navigate('/my-space');
+      // if(response.data.role=="potentialIntern")
+      //   {
+      //     navigate('/my-space');
 
-     
+      //   }
+      //   else if(response.data.role=="intern")
+      //     {
+      //       navigate('/my-space');
+
+      //     }
+      //     else {
+
+      //     }
+          navigate('/my-space');
+
+
 
       
       // For example, you can use react-router-dom to navigate to a different route
@@ -67,56 +81,79 @@ const Login = () => {
   return (
     <div>
       <section className="bg-white">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-red">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Welcome
-              </h1>
-              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className="form-label">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="form-input-field"
-                    placeholder="name@company.com"
-                    required=""
-                    value={loginData.email}
-                    onChange={handleChange}
-                  />
-                </div>
+        <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
+            <aside className="relative block h-16 lg:order-first lg:col-span-5 lg:h-full xl:col-span-6">
+                <img
+                  alt=""
+                  src="https://i.imgur.com/ROGBDeZ.png"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </aside>
+              <div className="flex items-center justify-center
+                px-8 py-8 sm:px-12 lg:col-span-7 
+                lg:px-16 lg:py-12 xl:col-span-6">
 
-                {/* Password */}
-                <div>
-                  <label htmlFor="password" className="form-label">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    className="form-input-field"
-                    placeholder="••••••••"
-                    required=""
-                    value={loginData.password}
-                    onChange={handleChange}
-                  />
-                </div>
+                <div className="max-w-xl lg:max-w-3xl">
+                <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+                  Welcome to Tunisair
+                </h1>
 
-                <button
-                  type="submit"
-                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                >
-                  Log in
-                </button>
-
-                <p className="text-sm font-light text-white">
-                  Don't have an account? <a href="http://localhost:5173/sign-up" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register here</a>
+                <p className="mt-4 leading-relaxed text-gray-500">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
+                  quibusdam aperiam voluptatum.
                 </p>
-              </form>
-            </div>
-          </div>
+                  
+
+
+                  
+                  <form className="mt-8 grid grid-cols-6 gap-6" onSubmit={handleSubmit}>
+                    {/* Email */}
+                    <div className='col-span-6 sm:col-span-3'>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        className="form-input-field"
+                        placeholder="name@company.com"
+                        required=""
+                        value={loginData.email}
+                        onChange={handleChange}
+                      />
+                    </div>
+
+                    {/* Password */}
+                    <div className='col-span-6 sm:col-span-3'>
+                      <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        className="form-input-field"
+                        placeholder="••••••••"
+                        required=""
+                        value={loginData.password}
+                        onChange={handleChange}
+                      />
+                    </div>
+
+                    <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
+
+                    <button
+                      type="submit"
+                      className="inline-block shrink-0 rounded-md border border-red bg-red px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-red focus:outline-none focus:ring">
+                      Log in
+                    </button>
+                    
+
+                    <p className="mt-4 text-sm text-gray-500 sm:mt-0">
+                      Don't have an account? <a href="http://localhost:5173/sign-up" className="text-gray-700 underline">Register here</a>
+                    </p>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
         </div>
       </section>
     </div>
