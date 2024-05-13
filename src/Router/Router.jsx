@@ -18,6 +18,7 @@ import Intern from "../components/Intern";
 import PrivateComponent from "../components/PrivateComponent";
 import UsersInfo from "../components/UsersInfo";
 import InternshipDetails from "../Pages/InternshipDetails";
+import IncomingRequests from "../components/IncomingRequests";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
         {path: "/edit-internship/:id", element: <UpdateInternship/>,
          loader: ({params}) => fetch(`http://localhost:5000/all-internships/${params.id}`) },
          {path: "/internship/:id", element: <InternshipDetails/> },
+         {path: "/incoming-requests", element: <IncomingRequests/> },
          {path: "/under-review", element: <UnderReview/> },
          {path: "/my-space/login", element: <Unnasigned/> },
          {path: "/intern", element: <Intern/> },
