@@ -29,30 +29,37 @@ const UsersInfo = () => {
   };
 
   return (
-    <div>
-      <h2>Users Info</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>School Name</th>
-            <th>Skills</th>
-            <th>Internship Type</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(user => (
+
+
+    <div className='max-w-[1000px] w-full mt-20  mx-auto text-center flex flex-col justify-center pb-14'>
+        
+
+<h2 className='md:text-7xl sm:text-6xl text-4xl font-extrabold md:py-6'>Users Info</h2>
+
+<div className="overflow-x-auto">
+  <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead className="ltr:text-left rtl:text-right">
+      <tr>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Last Name</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Email</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">School Name</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Skills</th>
+        <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Internship Type</th>
+        <th className="px-4 py-2"></th>
+      </tr>
+    </thead>
+
+    <tbody className="divide-y divide-gray-200">
+      {users.map(user => (
             <tr key={user._id}>
-              <td>{user.firstName}</td>
-              <td>{user.lastName}</td>
-              <td>{user.email}</td>
-              <td>{user.schoolname}</td>
-              <td>{user.skillsdev}</td>
-              <td>{user.internshipty}</td>
-              <td>
+              <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{user.firstName}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user.lastName}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user.email}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user.schoolname}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user.skillsdev}</td>
+              <td className="whitespace-nowrap px-4 py-2 text-gray-700">{user.internshipty}</td>
+              <td className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700" >
                 {user.role === 'potentialIntern' && (
                   <button onClick={() => handlePromoteToIntern(user._id)}>
                     Promote to Intern
@@ -61,8 +68,11 @@ const UsersInfo = () => {
               </td>
             </tr>
           ))}
-        </tbody>
-      </table>
+     
+    </tbody>
+  </table>
+</div>
+
     </div>
   );
 }
