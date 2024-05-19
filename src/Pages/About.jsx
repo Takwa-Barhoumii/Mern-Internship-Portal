@@ -7,7 +7,7 @@ const About = () => {
     <div>
       {/* over 100 years of  */}
 
-      <section className="overflow-hidden bg-[url(https://i.imgur.com/oxeNx09.jpeg)] bg-cover bg-center bg-no-repeat">
+      <section className="overflow-hidden max-w-[1600px] mx-auto  center bg-[url(https://i.imgur.com/oxeNx09.jpeg)] bg-cover bg-center bg-no-repeat">
         <div className="bg-black/25 p-8 md:p-12 lg:px-16 lg:py-24">
           <div className=" ltr:sm:text-left rtl:sm:text-right">
             <h2 className="text-xl font-extrabold text-red sm:text-3xl md:text-5xl">

@@ -111,7 +111,7 @@ const InternshipDetails = () => {
 
         <a className=" my-6 group relative inline-block focus:outline-none focus:ring" onClick={handleApply}>
         <span
-            className="absolute inset-0 translate-x-0 translate-y-0 bg-red transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+            className="absolute inset-0 translate-x-0 translate-y-0 bg-red/50 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5"
         ></span>
 
         <span
